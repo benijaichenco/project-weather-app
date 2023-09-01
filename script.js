@@ -7,6 +7,8 @@ let place = "tel aviv";
 let info = {
   forecast: [
     {
+      country: "",
+      city: "",
       degree: "",
       unit: "",
       conditionText: "",
@@ -52,6 +54,8 @@ async function getWeather() {
 }
 
 function saveData(data) {
+  info.forecast[0].city = data.location.name;
+  info.forecast[0].country = data.location.country;
   if (unitChoice === "metric") {
     info.forecast[0].degree = data.current.temp_c;
     info.forecast[0].unit = "°C";
@@ -125,4 +129,15 @@ function displayMain() {
   country.textContent = info.forecast[0].country;
 }
 
-getWeather().then(displayMain);
+function displayForecast() {
+  const cells = Array.from(document.querySelectorAll(".cell"));
+  for (let i = 0; i < cells.length; i++) {
+    cells[i].querySelector(".day").textContent = info.forecast[i + 1].day;
+    cells[i].querySelector(".icon").src = info.forecast[i + 1].conditionIcon;
+    cells[i].querySelector(".degree").textContent = `${
+      info.forecast[i + 1].degree
+    }°`;
+  }
+}
+
+getWeather().then(displayMain).then(displayForecast);
