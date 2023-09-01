@@ -1,5 +1,5 @@
 const url =
-  "http://api.weatherapi.com/v1/forecast.json?key=5d3dabed1d754a5e999103359232408&days=7&aqi=no&alerts=no&q=";
+  "https://api.weatherapi.com/v1/forecast.json?key=5d3dabed1d754a5e999103359232408&days=7&aqi=no&alerts=no&q=";
 
 let unitChoice = "imperial";
 let place = "tel aviv";
@@ -143,5 +143,13 @@ function displayForecast() {
 function start() {
   getWeather().then(displayMain).then(displayForecast);
 }
+
+const search = document.querySelector(".search");
+search.addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    place = search.value;
+    start();
+  }
+});
 
 start();
