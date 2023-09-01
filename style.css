@@ -15,6 +15,7 @@
 
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -69,4 +70,8 @@ body {
 .condition .text {
   font-size: 1.2rem;
   font-weight: 300;
+}
+
+.forecast {
+  display: flex;
 }
