@@ -152,4 +152,15 @@ search.addEventListener("keypress", function (e) {
   }
 });
 
+const unitInput = document.querySelector('input[type="checkbox"]');
+unitInput.addEventListener("change", function () {
+  if (unitInput.checked) {
+    unitChoice = "imperial";
+    start();
+  } else {
+    unitChoice = "metric";
+    start();
+  }
+});
+
 start();
