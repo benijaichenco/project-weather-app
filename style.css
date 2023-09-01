@@ -2,7 +2,7 @@
 
 :root {
   --dark-purple: #31255a;
-  --light-blue: #8fe0ff;
+  --light-purple: #a299d3;
   --pale-blue: #75b4e3;
   --deep-purple: #54416d;
   --navy-blue: #2b235a;
@@ -24,7 +24,12 @@ body {
     var(--dark-purple) 0%,
     var(--navy-blue) 100%
   );
-  color: var(--light-blue);
+  color: var(--light-purple);
+}
+
+.main {
+  border: solid 1px;
+  border-radius: 15px;
 }
 
 .current {
@@ -56,9 +61,9 @@ body {
 .temp .unit {
   flex-shrink: 0;
   position: relative;
-  top: 18px;
-  font-size: 1.8rem;
-  font-weight: 300;
+  top: 15px;
+  font-size: 2rem;
+  font-weight: 100;
 }
 
 .condition .icon {
@@ -67,6 +72,17 @@ body {
 }
 
 .condition .text {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.location .city {
+  font-size: 1.5rem;
+  font-weight: 100;
+}
+
+.location .country {
+  margin-top: 2px;
   font-size: 1.2rem;
   font-weight: 300;
 }
