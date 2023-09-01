@@ -4,6 +4,53 @@ const url =
 let unitChoice = "metric";
 let place = "tel aviv";
 
+let info = {
+  forecast: [
+    {
+      day: "",
+      degree: "",
+      unit: "",
+      conditionIcon: "",
+    },
+    {
+      day: "",
+      degree: "",
+      unit: "",
+      conditionIcon: "",
+    },
+    {
+      day: "",
+      degree: "",
+      unit: "",
+      conditionIcon: "",
+    },
+    {
+      day: "",
+      degree: "",
+      unit: "",
+      conditionIcon: "",
+    },
+    {
+      dday: "",
+      degree: "",
+      unit: "",
+      conditionIcon: "",
+    },
+    {
+      day: "",
+      degree: "",
+      unit: "",
+      conditionIcon: "",
+    },
+    {
+      day: "",
+      degree: "",
+      unit: "",
+      conditionIcon: "",
+    },
+  ],
+};
+
 async function getWeather() {
   const response = await fetch(url + place);
   const json = await response.json();
