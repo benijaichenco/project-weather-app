@@ -24,11 +24,10 @@ body {
     var(--dark-purple) 0%,
     var(--navy-blue) 100%
   );
-  color: var(--deep-purple);
+  color: var(--light-blue);
 }
 
 .current {
-  border: 1px solid;
   height: 250px;
   width: 600px;
   display: flex;
@@ -74,4 +73,24 @@ body {
 
 .forecast {
   display: flex;
+  margin-top: 20px;
+  width: 600px;
+  height: 120px;
+}
+
+.forecast .cell:first-of-type {
+  border: none;
+}
+
+.forecast .cell {
+  border-left: 1px solid;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.forecast .icon {
+  height: 30px;
 }
