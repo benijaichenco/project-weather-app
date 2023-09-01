@@ -1,7 +1,7 @@
 const url =
   "http://api.weatherapi.com/v1/forecast.json?key=5d3dabed1d754a5e999103359232408&days=7&aqi=no&alerts=no&q=";
 
-let unitChoice = "metric";
+let unitChoice = "imperial";
 let place = "tel aviv";
 
 let info = {
@@ -140,4 +140,8 @@ function displayForecast() {
   }
 }
 
-getWeather().then(displayMain).then(displayForecast);
+function start() {
+  getWeather().then(displayMain).then(displayForecast);
+}
+
+start();
