@@ -208,6 +208,12 @@ input[type="checkbox"]:checked:before {
     min-width: 200px;
   }
 
+  .unit-choice {
+    margin-top: 20px;
+    position: static;
+    transform: translateX(0);
+  }
+
   .current {
     width: 100%;
   }
