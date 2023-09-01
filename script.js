@@ -8,6 +8,7 @@ let info = {
   forecast: [
     {
       degree: "",
+      unit: "",
       conditionText: "",
       conditionIcon: "",
     },
@@ -53,8 +54,10 @@ async function getWeather() {
 function saveData(data) {
   if (unitChoice === "metric") {
     info.forecast[0].degree = data.current.temp_c;
+    info.forecast[0].unit = "°C";
   } else if (unitChoice === "imperial") {
     info.forecast[0].degree = data.current.temp_f;
+    info.forecast[0].unit = "°F";
   }
   info.forecast[0].conditionIcon = data.current.condition.icon;
   info.forecast[0].conditionText = data.current.condition.text;
@@ -105,4 +108,21 @@ function dayInWeek(date) {
   return day;
 }
 
-getWeather();
+function displayMain() {
+  const degree = document.querySelector(".main .degree");
+  const unit = document.querySelector(".main .unit");
+  const conditionIcon = document.querySelector(".main .icon");
+  const conditionText = document.querySelector(".main .text");
+  const city = document.querySelector(".main .city");
+
+  const country = document.querySelector(".main .country");
+
+  degree.textContent = info.forecast[0].degree;
+  unit.textContent = info.forecast[0].unit;
+  conditionIcon.src = info.forecast[0].conditionIcon;
+  conditionText.textContent = info.forecast[0].conditionText;
+  city.textContent = `${info.forecast[0].city},`;
+  country.textContent = info.forecast[0].country;
+}
+
+getWeather().then(displayMain);
