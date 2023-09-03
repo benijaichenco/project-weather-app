@@ -34,6 +34,7 @@ body {
 }
 
 .search {
+  z-index: 2;
   position: absolute;
   left: 50%;
   transform: translate(-50%, -150%);
@@ -170,6 +171,21 @@ input[type="checkbox"]:checked:before {
   height: 30px;
 }
 
+.loading {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+  background: radial-gradient(
+    circle,
+    var(--dark-purple) 0%,
+    var(--navy-blue) 100%
+  );
+}
+
 .loading::after {
   content: "";
   display: none;
@@ -186,6 +202,14 @@ input[type="checkbox"]:checked:before {
   animation: loading 0.75s ease infinite;
 }
 
+.loading.active {
+  display: block;
+}
+
+.loading.active::after {
+  display: block;
+}
+
 @keyframes loading {
   from {
     transform: translate(-50%, -50%) rotate(0turn);
@@ -193,10 +217,6 @@ input[type="checkbox"]:checked:before {
   to {
     transform: translate(-50%, -50%) rotate(1turn);
   }
-}
-
-.loading.active::after {
-  display: block;
 }
 
 @media (max-width: 650px) {
