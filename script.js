@@ -152,6 +152,10 @@ function start() {
     .then(displayForecast)
     .then(function () {
       loader.classList.remove("active");
+    })
+    .catch((error) => {
+      displayErrorPage();
+      console.log(error);
     });
 }
 
@@ -175,3 +179,10 @@ unitInput.addEventListener("change", function () {
 });
 
 start();
+
+function displayErrorPage() {
+  document.body.innerHTML = `
+  <h2>Something went wrong :(</h1>
+  <p>Please try again later.</p>
+  `;
+}
