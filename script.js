@@ -141,7 +141,18 @@ function displayForecast() {
 }
 
 function start() {
-  getWeather().then(displayMain).then(displayForecast);
+  const loader = document.querySelector(".loading");
+  if (info.forecast[0].city !== place) {
+    loader.classList.add("active");
+    console.log("hmm");
+  }
+
+  getWeather()
+    .then(displayMain)
+    .then(displayForecast)
+    .then(function () {
+      loader.classList.remove("active");
+    });
 }
 
 const search = document.querySelector(".search");
