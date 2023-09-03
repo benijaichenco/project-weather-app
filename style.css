@@ -35,9 +35,7 @@ body {
 
 .search {
   z-index: 2;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -150%);
+  margin: 20px;
   height: 35px;
   width: 200px;
   outline: none;
@@ -226,27 +224,16 @@ input[type="checkbox"]:checked:before {
     height: 100vh;
     margin: 1;
   }
+
   .main {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     border: none;
     height: 100%;
     width: 100vw;
-  }
-
-  .search {
-    position: static;
-    transform: translate(0, 0);
-    margin: 15px 0;
-    width: 80%;
-    min-width: 200px;
-  }
-
-  .search:focus {
-    width: 80%;
-    min-width: 200px;
+    padding: 10px;
   }
 
   .unit-choice {
