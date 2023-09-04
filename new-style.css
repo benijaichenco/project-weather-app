@@ -1,15 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
 :root {
   --Purple: #31255a;
-  --Light-Blue: #8fe0ff;
-  --Blue: #75b4e3;
+  --White: #a59aca;
   --Dark-Purple: #54416d;
   --Navy-Blue: #2b235a;
+}
+
+* {
+  color: var(--White);
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
 }
 
 body {
   display: flex;
   flex-direction: column;
-  background-color: var(--Blue);
+  background: linear-gradient(
+    180deg,
+    rgba(49, 37, 90, 1) 0%,
+    rgba(84, 65, 109, 1) 100%
+  );
+}
+
+.search {
+  transition: 0.3s;
+  margin: 20px auto;
+  height: 35px;
+  background-color: var(--White);
+  text-align: center;
+  border-radius: 50px;
+  border: none;
+  color: var(--Purple);
+  font-size: 1rem;
+  width: 80vw;
+}
+
+.search::placeholder {
+  color: var(--Dark-Purple);
+}
+
+.search:focus {
+  font-size: 1.4rem;
+  border: none;
+  outline: none;
+  width: 90vw;
+  height: 45px;
 }
 
 .main {
@@ -49,8 +85,19 @@ body {
   margin-top: 10px;
 }
 
+.left .condition {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .left .condition .icon {
   height: 80px;
+  margin: 0;
+}
+
+.left .condition .text {
+  font-size: 1.2rem;
 }
 
 .unit-choice {
@@ -58,11 +105,52 @@ body {
 }
 
 .location {
-  display: flex;
-  gap: 10px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
 .city {
+  font-size: 1.3rem;
   font-weight: 600;
+}
+
+.forecast {
+  position: relative;
+  border-radius: 15px;
+  margin-top: 20px;
+  background-color: rgba(0, 0, 0, 0.13);
+  min-width: 200px;
+  width: 90vw;
+  padding: 0 20px;
+}
+
+.cell {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  width: 100%;
+  height: 50px;
+  border-top: 1px solid;
+}
+
+.cell:first-child {
+  border: none;
+}
+
+.cell .day,
+.cell .degree {
+  display: flex;
+  align-items: center;
+}
+
+.cell .day {
+  justify-content: flex-start;
+}
+
+.cell .degree {
+  justify-content: flex-end;
+}
+
+.forecast .icon {
+  height: 35px;
+  margin: auto;
 }
