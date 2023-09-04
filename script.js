@@ -141,18 +141,9 @@ function displayForecast() {
 }
 
 function start() {
-  const loader = document.querySelector(".loading");
-  if (info.forecast[0].city !== place) {
-    loader.classList.add("active");
-    console.log("hmm");
-  }
-
   getWeather()
     .then(displayMain)
     .then(displayForecast)
-    .then(function () {
-      loader.classList.remove("active");
-    })
     .catch((error) => {
       displayErrorPage();
       console.log(error);
@@ -172,9 +163,11 @@ unitInput.addEventListener("change", function () {
   if (unitInput.checked) {
     unitChoice = "imperial";
     start();
+    document.querySelector(".unit-text").textContent = "Imperial";
   } else {
     unitChoice = "metric";
     start();
+    document.querySelector(".unit-text").textContent = "Metric";
   }
 });
 
