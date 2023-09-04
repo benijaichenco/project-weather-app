@@ -1,0 +1,68 @@
+:root {
+  --Purple: #31255a;
+  --Light-Blue: #8fe0ff;
+  --Blue: #75b4e3;
+  --Dark-Purple: #54416d;
+  --Navy-Blue: #2b235a;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--Blue);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.current {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.left {
+  order: 2;
+}
+
+.left,
+.left .condition .icon,
+.left .condition .text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.left .temp {
+  display: flex;
+}
+
+.left .degree {
+  font-size: 6rem;
+}
+
+.left .unit {
+  font-size: 2rem;
+  margin-top: 10px;
+}
+
+.left .condition .icon {
+  height: 80px;
+}
+
+.unit-choice {
+  display: none;
+}
+
+.location {
+  display: flex;
+  gap: 10px;
+  font-size: 1.5rem;
+}
+
+.city {
+  font-weight: 600;
+}
