@@ -1,5 +1,7 @@
 const url =
   "https://api.weatherapi.com/v1/forecast.json?key=5d3dabed1d754a5e999103359232408&days=7&aqi=no&alerts=no&q=";
+const searchUrl =
+  "http://api.weatherapi.com/v1/search.json?key=5d3dabed1d754a5e999103359232408&q=";
 
 let unitChoice = "metric";
 let place = "tel aviv";
@@ -182,6 +184,20 @@ search.addEventListener("keypress", function (e) {
     start();
   }
 });
+
+// add autocomplete :
+// search.addEventListener("keyup", (e) => {
+//   if (e.key.match(/[a-zA-Z]/) && search.value.length > 2) {
+//     let string = search.value;
+//     console.log(search.value);
+//     autoCompleteData(string);
+//   }
+// });
+// async function autoCompleteData(string) {
+//   const response = await fetch(searchUrl + string);
+//   const json = await response.json();
+//   console.log(json);
+// }
 
 const unitInput = document.querySelector('input[type="checkbox"]');
 unitInput.addEventListener("change", function () {
