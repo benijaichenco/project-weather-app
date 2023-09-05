@@ -145,6 +145,10 @@ function displayForecast() {
 }
 
 function start() {
+  const error = document.querySelector(".error");
+  if (error.classList.value.includes("active")) {
+    error.classList.remove("active");
+  }
   const loader = document.querySelector(".loader");
   const main = document.querySelector(".main");
   if (info.forecast[0].city !== place) {
