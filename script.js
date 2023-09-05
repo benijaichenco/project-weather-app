@@ -146,13 +146,16 @@ function displayForecast() {
 
 function start() {
   const loader = document.querySelector(".loader");
+  const main = document.querySelector(".main");
   if (info.forecast[0].city !== place) {
+    main.classList.remove("active");
     loader.classList.add("active");
   }
   getWeather()
     .then(displayMain)
     .then(displayForecast)
     .then(function () {
+      main.classList.add("active");
       loader.classList.remove("active");
     })
     .catch((error) => {
