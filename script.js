@@ -145,11 +145,19 @@ function displayForecast() {
 }
 
 function start() {
+  const loader = document.querySelector(".loader");
+  if (info.forecast[0].city !== place) {
+    loader.classList.add("active");
+  }
   getWeather()
     .then(displayMain)
     .then(displayForecast)
+    .then(function () {
+      loader.classList.remove("active");
+    })
     .catch((error) => {
       displayError();
+      loader.classList.remove("active");
       console.log(error);
     });
 }
