@@ -180,11 +180,21 @@ const unitInput = document.querySelector('input[type="checkbox"]');
 unitInput.addEventListener("change", function () {
   if (unitInput.checked) {
     unitChoice = "imperial";
-    start();
+    getWeather()
+      .then(displayMain)
+      .then(displayForecast)
+      .catch((error) => {
+        displayError();
+      });
     document.querySelector(".unit-text").textContent = "Imperial";
   } else {
     unitChoice = "metric";
-    start();
+    getWeather()
+      .then(displayMain)
+      .then(displayForecast)
+      .catch((error) => {
+        displayError();
+      });
     document.querySelector(".unit-text").textContent = "Metric";
   }
 });
