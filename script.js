@@ -113,6 +113,10 @@ function dayInWeek(date) {
 }
 
 function displayMain() {
+  if (!document.querySelector(".main").classList.value.includes("active")) {
+    document.querySelector(".main").classList.add("active");
+    document.querySelector(".error").classList.remove("active");
+  }
   const degree = document.querySelector(".main .degree");
   const unit = document.querySelector(".main .unit");
   const conditionIcon = document.querySelector(".main .icon");
@@ -145,7 +149,7 @@ function start() {
     .then(displayMain)
     .then(displayForecast)
     .catch((error) => {
-      displayErrorPage();
+      displayError();
       console.log(error);
     });
 }
@@ -173,9 +177,7 @@ unitInput.addEventListener("change", function () {
 
 start();
 
-function displayErrorPage() {
-  document.body.innerHTML = `
-  <h2>Something went wrong :(</h1>
-  <p>Please try again later.</p>
-  `;
+function displayError() {
+  document.querySelector(".main").classList.remove("active");
+  document.querySelector(".error").classList.add("active");
 }
