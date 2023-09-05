@@ -155,6 +155,12 @@ function start() {
 }
 
 const search = document.querySelector(".search");
+search.addEventListener("focus", () => {
+  search.placeholder = "";
+});
+search.addEventListener("blur", () => {
+  search.placeholder = "Search";
+});
 search.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
     place = search.value;
