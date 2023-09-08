@@ -117,13 +117,13 @@ function displayMain() {
 
 function displayForecast() {
   const cells = Array.from(document.querySelectorAll(".cell"));
-  for (let i = 1; i < cells.length; i++) {
+  for (let i = 0; i < cells.length; i++) {
     console.log(info.forecast[i]);
-    cells[i].querySelector(".day").textContent = info.forecast[i].day;
-    cells[i].querySelector(".icon").src = info.forecast[i].conditionIcon;
-    cells[i].querySelector(
-      ".degree"
-    ).textContent = `${info.forecast[i].degree}°`;
+    cells[i].querySelector(".day").textContent = info.forecast[i + 1].day;
+    cells[i].querySelector(".icon").src = info.forecast[i + 1].conditionIcon;
+    cells[i].querySelector(".degree").textContent = `${
+      info.forecast[i + 1].degree
+    }°`;
   }
 }
 
