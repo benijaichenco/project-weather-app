@@ -26,26 +26,6 @@ let info = {
       degree: "",
       conditionIcon: "",
     },
-    {
-      day: "",
-      degree: "",
-      conditionIcon: "",
-    },
-    {
-      day: "",
-      degree: "",
-      conditionIcon: "",
-    },
-    {
-      day: "",
-      degree: "",
-      conditionIcon: "",
-    },
-    {
-      day: "",
-      degree: "",
-      conditionIcon: "",
-    },
   ],
 };
 
@@ -137,12 +117,13 @@ function displayMain() {
 
 function displayForecast() {
   const cells = Array.from(document.querySelectorAll(".cell"));
-  for (let i = 0; i < cells.length; i++) {
-    cells[i].querySelector(".day").textContent = info.forecast[i + 1].day;
-    cells[i].querySelector(".icon").src = info.forecast[i + 1].conditionIcon;
-    cells[i].querySelector(".degree").textContent = `${
-      info.forecast[i + 1].degree
-    }°`;
+  for (let i = 1; i < cells.length; i++) {
+    console.log(info.forecast[i]);
+    cells[i].querySelector(".day").textContent = info.forecast[i].day;
+    cells[i].querySelector(".icon").src = info.forecast[i].conditionIcon;
+    cells[i].querySelector(
+      ".degree"
+    ).textContent = `${info.forecast[i].degree}°`;
   }
 }
 
@@ -222,9 +203,15 @@ unitInput.addEventListener("change", function () {
   }
 });
 
-start();
-
 function displayError() {
   document.querySelector(".main").classList.remove("active");
   document.querySelector(".error").classList.add("active");
 }
+
+async function weather() {
+  const response = await fetch(url + place);
+  const json = await response.json();
+  console.log(json);
+}
+
+start();
