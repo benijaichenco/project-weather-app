@@ -1,4 +1,4 @@
 # weather-app
-This is a weather-app project.
+This is a responsive weather-app website.
 
 Live preview: https://faderb.github.io/project-weather-app/
